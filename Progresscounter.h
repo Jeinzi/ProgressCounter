@@ -1,16 +1,16 @@
-#ifndef CPROGRESS_H
-#define CPROGRESS_H
+#ifndef PROGRESS_H
+#define PROGRESS_H
 
 #include <string>
-#include <General.h>
+#include <iostream>
 
 using namespace std;
 
-class Progress
+class Progresscounter
 {
 public:
-	Progress();
-	Progress(int MaxElements, int Counter = 0);
+	Progresscounter();
+	Progresscounter(int MaxElements, int Counter = 0);
 
 	void	Reset();
 	void	Reset(int MaxElements, int Counter = 0);

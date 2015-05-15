@@ -2,39 +2,39 @@
 
 /**************** Konstruktor ****************/
 
-Progress::Progress()
+Progresscounter::Progresscounter()
 {
-	Progress::Progress(100, 0);
+	Progresscounter::Progresscounter(100, 0);
 }
 
-Progress::Progress(int MaxElements, int Counter)
+Progresscounter::Progresscounter(int MaxElements, int Counter)
 {
-	Progress::MaxElements		= MaxElements;
-	Progress::Counter			= Counter;
-	Progress::Percent			= 0;
-	Progress::PrintedPercent	= 0;
-	Progress::Printed			= false;
+	Progresscounter::MaxElements = MaxElements;
+	Progresscounter::Counter = Counter;
+	Progresscounter::Percent = 0;
+	Progresscounter::PrintedPercent = 0;
+	Progresscounter::Printed = false;
 }
 
 /**************** Funktionen ****************/
 
-void Progress::Reset()
+void Progresscounter::Reset()
 {
 	//Setzt die Zähler wieder in den Anfangszustand zurück
-	Reset(Progress::MaxElements, 0);
+	Reset(Progresscounter::MaxElements, 0);
 	return;
 }
 
-void Progress::Reset(int MaxElements, int Counter)
+void Progresscounter::Reset(int MaxElements, int Counter)
 {
 	//Initialisiert das Objekt mit neuen Werten
-	Progress::MaxElements = MaxElements;
+	Progresscounter::MaxElements = MaxElements;
 	Printed = false;
 	SetCounter(Counter);
 	return;
 }
 
-void Progress::SetCounter(int Counter)
+void Progresscounter::SetCounter(int Counter)
 {
 	//Setzt den Zähler auf den übergebenen Wert
 
@@ -49,22 +49,22 @@ void Progress::SetCounter(int Counter)
 	}
 
 	//Counter wird gesetzt
-	Progress::Counter = Counter;
+	Progresscounter::Counter = Counter;
 
 	//Prozentueller Anteil des Counters am Maximum wird berechnet
-	Progress::Percent			= 100 * ((double)Counter / (double)MaxElements);
+	Progresscounter::Percent = 100 * ((double)Counter / (double)MaxElements);
 
 	return;
 }
 
-void Progress::Increment()
+void Progresscounter::Increment()
 {
 	//Erhöht den Zähler um Eins
 	SetCounter(Counter + 1);
 	return;
 }
 
-bool Progress::Print()
+bool Progresscounter::Print()
 {
 	//Gibt bei Bedarf die aktuelle Prozentzahl aus
 	if(PrintedPercent != (int)Percent)
@@ -84,25 +84,25 @@ bool Progress::Print()
 	return(false);
 }
 
-int Progress::GetCounter()
+int Progresscounter::GetCounter()
 {
 	//Gibt den aktuellen Counter zurück
 	return(Counter);
 }
 
-int Progress::GetMaxElements()
+int Progresscounter::GetMaxElements()
 {
 	//Gibt den Maximalwert des Counters zurück
 	return(MaxElements);
 }
 
-double Progress::GetPercent()
+double Progresscounter::GetPercent()
 {
 	//Gibt den aktuellen Fortschritt in Prozent zurück
 	return(Percent);
 }
 
-string Progress::GetString()
+string Progresscounter::GetString()
 {
 	//Gibt die aktuelle Prozentzahl formatiert als String zurück
 	string Output = "";
@@ -116,17 +116,17 @@ string Progress::GetString()
 	else if(Percent < 10)
 	{
 		Output += "00";
-		Output += IntToString((int)Percent);
+		Output += to_string((int)Percent);
 	}
 	else if(Percent < 100)
 	{
 		Output += "0";
-		Output += IntToString((int)Percent);
+		Output += to_string((int)Percent);
 	}
 	else
 	{
 		Percent = 100;
-		Output += IntToString((int)Percent);
+		Output += to_string((int)Percent);
 	}
 
 	//String wird weiter formatiert
