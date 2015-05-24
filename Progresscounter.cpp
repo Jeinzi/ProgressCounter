@@ -22,7 +22,6 @@ Progresscounter::Progresscounter(int maxElements, int counter)
 void Progresscounter::Reset()
 {
 	Reset(Progresscounter::maxElements, 0);
-	return;
 }
 
 
@@ -32,7 +31,6 @@ void Progresscounter::Reset(int maxElements, int counter)
 	Progresscounter::maxElements = maxElements;
 	printed = false;
 	SetCounter(counter);
-	return;
 }
 
 
@@ -54,8 +52,6 @@ void Progresscounter::SetCounter(int counter)
 
 	// Calculating percantage of maximum value.
 	Progresscounter::percent = 100 * ((double)counter / (double)maxElements);
-
-	return;
 }
 
 
@@ -63,7 +59,6 @@ void Progresscounter::SetCounter(int counter)
 void Progresscounter::Increment()
 {
 	SetCounter(counter + 1);
-	return;
 }
 
 
