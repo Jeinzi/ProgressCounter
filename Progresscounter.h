@@ -1,5 +1,5 @@
-#ifndef PROGRESS_H
-#define PROGRESS_H
+#ifndef PROGRESSCOUNTER_H
+#define PROGRESSCOUNTER_H
 
 #include <string>
 #include <iostream>
