@@ -1,6 +1,6 @@
 #include "Progresscounter.h"
 
-/**************** Konstruktor ****************/
+/**************** Constructor ****************/
 
 Progresscounter::Progresscounter()
 {
@@ -16,29 +16,30 @@ Progresscounter::Progresscounter(int maxElements, int counter)
 	Progresscounter::printed = false;
 }
 
-/**************** Funktionen ****************/
+/**************** Functions ****************/
 
+// Sets the counter to its initial state.
 void Progresscounter::Reset()
 {
-	//Setzt die Zähler wieder in den Anfangszustand zurück
 	Reset(Progresscounter::maxElements, 0);
 	return;
 }
 
+
+// Initializes the counter with new values.
 void Progresscounter::Reset(int maxElements, int counter)
 {
-	//Initialisiert das Objekt mit neuen Werten
 	Progresscounter::maxElements = maxElements;
 	printed = false;
 	SetCounter(counter);
 	return;
 }
 
+
+// Sets the counter to the given value.
 void Progresscounter::SetCounter(int counter)
 {
-	//Setzt den Zähler auf den übergebenen Wert
-
-	//Prüfung, ob Zähler sich in einem validen Wertebereich befindet
+	// Checks, if the counter is in a valid range.
 	if(counter < 0)
 	{
 		counter = 0;
@@ -48,25 +49,27 @@ void Progresscounter::SetCounter(int counter)
 		counter = maxElements;
 	}
 
-	//Counter wird gesetzt
+	// Setting counter.
 	Progresscounter::counter = counter;
 
-	//Prozentueller Anteil des Counters am Maximum wird berechnet
+	// Calculating percantage of maximum value.
 	Progresscounter::percent = 100 * ((double)counter / (double)maxElements);
 
 	return;
 }
 
+
+// Increments the counter by one.
 void Progresscounter::Increment()
 {
-	//Erhöht den Zähler um Eins
 	SetCounter(counter + 1);
 	return;
 }
 
+
+// Prints the new percentage, if it has changed.
 bool Progresscounter::Print()
 {
-	//Gibt bei Bedarf die aktuelle Prozentzahl aus
 	if(printedPercent != (int)percent)
 	{
 		if(!printed)
@@ -84,30 +87,34 @@ bool Progresscounter::Print()
 	return(false);
 }
 
+
+// Returns the current counter.
 int Progresscounter::GetCounter()
 {
-	//Gibt den aktuellen Counter zurück
 	return(counter);
 }
 
+
+// Returns the maximum value of the counter.
 int Progresscounter::GetMaxElements()
 {
-	//Gibt den Maximalwert des Counters zurück
 	return(maxElements);
 }
 
+
+// Returns the current progress as percentage.
 double Progresscounter::GetPercent()
 {
-	//Gibt den aktuellen Fortschritt in Prozent zurück
 	return(percent);
 }
 
+
+// Returns the current percentage formatted as a string.
 string Progresscounter::GetString()
 {
-	//Gibt die aktuelle Prozentzahl formatiert als String zurück
 	string output = "";
 
-	//Zahl wird formatiert
+	// Formatting number.
 	if(percent <= 0)
 	{
 		percent = 0;
@@ -128,8 +135,6 @@ string Progresscounter::GetString()
 		percent = 100;
 		output += to_string((int)percent);
 	}
-
-	//String wird weiter formatiert
 	output += " %";
 
 	return(output);
