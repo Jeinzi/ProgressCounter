@@ -4,8 +4,6 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
-
 class Progresscounter
 {
 public:
@@ -20,7 +18,7 @@ public:
 	int		GetCounter();
 	int		GetMaxElements();
 	double	GetPercent();
-	string	GetString();
+	std::string	GetString();
 
 private:
 	bool	printed;

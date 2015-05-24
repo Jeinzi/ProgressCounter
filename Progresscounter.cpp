@@ -74,12 +74,12 @@ bool Progresscounter::Print()
 	{
 		if(!printed)
 		{
-			cout << "000 %";
+			std::cout << "000 %";
 			printed = true;
 		}
 		else
 		{
-			cout << "\b\b\b\b\b" << GetString();
+			std::cout << "\b\b\b\b\b" << GetString();
 		}
 		printedPercent = (int)percent;
 		return(true);
@@ -110,9 +110,9 @@ double Progresscounter::GetPercent()
 
 
 // Returns the current percentage formatted as a string.
-string Progresscounter::GetString()
+std::string Progresscounter::GetString()
 {
-	string output = "";
+	std::string output = "";
 
 	// Formatting number.
 	if(percent <= 0)
@@ -123,17 +123,17 @@ string Progresscounter::GetString()
 	else if(percent < 10)
 	{
 		output += "00";
-		output += to_string((int)percent);
+		output += std::to_string((int)percent);
 	}
 	else if(percent < 100)
 	{
 		output += "0";
-		output += to_string((int)percent);
+		output += std::to_string((int)percent);
 	}
 	else
 	{
 		percent = 100;
-		output += to_string((int)percent);
+		output += std::to_string((int)percent);
 	}
 	output += " %";
 
