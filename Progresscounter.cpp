@@ -14,7 +14,7 @@ Progresscounter::Progresscounter(int maxElements, int counter)
 {
 	Progresscounter::maxElements = maxElements;
 	Progresscounter::counter = counter;
-	Progresscounter::percent = 0;
+	Progresscounter::percent = 100 * ((double)counter / (double)maxElements);
 	Progresscounter::printedPercent = 0;
 	Progresscounter::printed = false;
 }
