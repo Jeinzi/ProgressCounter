@@ -1,4 +1,4 @@
-#include "Progress.h"
+#include "Progresscounter.h"
 
 /**************** Konstruktor ****************/
 
@@ -7,13 +7,13 @@ Progresscounter::Progresscounter()
 	Progresscounter::Progresscounter(100, 0);
 }
 
-Progresscounter::Progresscounter(int MaxElements, int Counter)
+Progresscounter::Progresscounter(int maxElements, int counter)
 {
-	Progresscounter::MaxElements = MaxElements;
-	Progresscounter::Counter = Counter;
-	Progresscounter::Percent = 0;
-	Progresscounter::PrintedPercent = 0;
-	Progresscounter::Printed = false;
+	Progresscounter::maxElements = maxElements;
+	Progresscounter::counter = counter;
+	Progresscounter::percent = 0;
+	Progresscounter::printedPercent = 0;
+	Progresscounter::printed = false;
 }
 
 /**************** Funktionen ****************/
@@ -21,38 +21,38 @@ Progresscounter::Progresscounter(int MaxElements, int Counter)
 void Progresscounter::Reset()
 {
 	//Setzt die Zähler wieder in den Anfangszustand zurück
-	Reset(Progresscounter::MaxElements, 0);
+	Reset(Progresscounter::maxElements, 0);
 	return;
 }
 
-void Progresscounter::Reset(int MaxElements, int Counter)
+void Progresscounter::Reset(int maxElements, int counter)
 {
 	//Initialisiert das Objekt mit neuen Werten
-	Progresscounter::MaxElements = MaxElements;
-	Printed = false;
-	SetCounter(Counter);
+	Progresscounter::maxElements = maxElements;
+	printed = false;
+	SetCounter(counter);
 	return;
 }
 
-void Progresscounter::SetCounter(int Counter)
+void Progresscounter::SetCounter(int counter)
 {
 	//Setzt den Zähler auf den übergebenen Wert
 
 	//Prüfung, ob Zähler sich in einem validen Wertebereich befindet
-	if(Counter < 0)
+	if(counter < 0)
 	{
-		Counter = 0;
+		counter = 0;
 	}
-	else if(Counter > MaxElements)
+	else if(counter > maxElements)
 	{
-		Counter = MaxElements;
+		counter = maxElements;
 	}
 
 	//Counter wird gesetzt
-	Progresscounter::Counter = Counter;
+	Progresscounter::counter = counter;
 
 	//Prozentueller Anteil des Counters am Maximum wird berechnet
-	Progresscounter::Percent = 100 * ((double)Counter / (double)MaxElements);
+	Progresscounter::percent = 100 * ((double)counter / (double)maxElements);
 
 	return;
 }
@@ -60,25 +60,25 @@ void Progresscounter::SetCounter(int Counter)
 void Progresscounter::Increment()
 {
 	//Erhöht den Zähler um Eins
-	SetCounter(Counter + 1);
+	SetCounter(counter + 1);
 	return;
 }
 
 bool Progresscounter::Print()
 {
 	//Gibt bei Bedarf die aktuelle Prozentzahl aus
-	if(PrintedPercent != (int)Percent)
+	if(printedPercent != (int)percent)
 	{
-		if(!Printed)
+		if(!printed)
 		{
 			cout << "000 %";
-			Printed = true;
+			printed = true;
 		}
 		else
 		{
 			cout << "\b\b\b\b\b" << GetString();
 		}
-		PrintedPercent = (int)Percent;
+		printedPercent = (int)percent;
 		return(true);
 	}
 	return(false);
@@ -87,50 +87,50 @@ bool Progresscounter::Print()
 int Progresscounter::GetCounter()
 {
 	//Gibt den aktuellen Counter zurück
-	return(Counter);
+	return(counter);
 }
 
 int Progresscounter::GetMaxElements()
 {
 	//Gibt den Maximalwert des Counters zurück
-	return(MaxElements);
+	return(maxElements);
 }
 
 double Progresscounter::GetPercent()
 {
 	//Gibt den aktuellen Fortschritt in Prozent zurück
-	return(Percent);
+	return(percent);
 }
 
 string Progresscounter::GetString()
 {
 	//Gibt die aktuelle Prozentzahl formatiert als String zurück
-	string Output = "";
+	string output = "";
 
 	//Zahl wird formatiert
-	if(Percent <= 0)
+	if(percent <= 0)
 	{
-		Percent = 0;
-		Output += "000";
+		percent = 0;
+		output += "000";
 	}
-	else if(Percent < 10)
+	else if(percent < 10)
 	{
-		Output += "00";
-		Output += to_string((int)Percent);
+		output += "00";
+		output += to_string((int)percent);
 	}
-	else if(Percent < 100)
+	else if(percent < 100)
 	{
-		Output += "0";
-		Output += to_string((int)Percent);
+		output += "0";
+		output += to_string((int)percent);
 	}
 	else
 	{
-		Percent = 100;
-		Output += to_string((int)Percent);
+		percent = 100;
+		output += to_string((int)percent);
 	}
 
 	//String wird weiter formatiert
-	Output += " %";
+	output += " %";
 
-	return(Output);
+	return(output);
 }

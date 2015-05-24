@@ -10,11 +10,11 @@ class Progresscounter
 {
 public:
 	Progresscounter();
-	Progresscounter(int MaxElements, int Counter = 0);
+	Progresscounter(int maxElements, int counter = 0);
 
 	void	Reset();
-	void	Reset(int MaxElements, int Counter = 0);
-	void	SetCounter(int Counter);
+	void	Reset(int maxElements, int counter = 0);
+	void	SetCounter(int counter);
 	void	Increment();
 	bool	Print();
 	int		GetCounter();
@@ -23,11 +23,11 @@ public:
 	string	GetString();
 
 private:
-	bool	Printed;
-	int		MaxElements;
-	int		Counter;
-	int		PrintedPercent;
-	double	Percent;
+	bool	printed;
+	int		maxElements;
+	int		counter;
+	int		printedPercent;
+	double	percent;
 };
 
 #endif
