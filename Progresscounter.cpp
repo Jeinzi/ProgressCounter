@@ -75,10 +75,8 @@ bool Progresscounter::Print()
 			std::cout << "000 %";
 			printed = true;
 		}
-		else
-		{
-			std::cout << "\b\b\b\b\b" << GetString();
-		}
+		
+		std::cout << "\b\b\b\b\b" << GetString();
 		printedPercent = (int)percent;
 		return(true);
 	}
