@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 
+// A class representing a text based progress counter.
 class Progresscounter
 {
 public:

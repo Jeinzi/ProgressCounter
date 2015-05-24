@@ -2,11 +2,14 @@
 
 /**************** Constructor ****************/
 
+// Initializes a progresscounter for values between 0 and 100.
 Progresscounter::Progresscounter()
 {
 	Progresscounter::Progresscounter(100, 0);
 }
 
+
+// Initializes a progresscounter within a custom range.
 Progresscounter::Progresscounter(int maxElements, int counter)
 {
 	Progresscounter::maxElements = maxElements;
@@ -37,7 +40,7 @@ void Progresscounter::Reset(int maxElements, int counter)
 // Sets the counter to the given value.
 void Progresscounter::SetCounter(int counter)
 {
-	// Checks, if the counter is in a valid range.
+	// Checks if the counter is in a valid range.
 	if(counter < 0)
 	{
 		counter = 0;
