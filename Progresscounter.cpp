@@ -4,9 +4,7 @@
 
 // Initializes a progresscounter for values between 0 and 100.
 Progresscounter::Progresscounter()
-{
-	Progresscounter::Progresscounter(100, 0);
-}
+	: Progresscounter::Progresscounter(100 ,0) {}
 
 
 // Initializes a progresscounter within a custom range.
