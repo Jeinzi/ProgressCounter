@@ -13,7 +13,7 @@ Progresscounter::Progresscounter(int maxElements, int counter)
 	Progresscounter::maxElements = maxElements;
 	Progresscounter::counter = counter;
 	Progresscounter::percent = 100 * ((double)counter / (double)maxElements);
-	Progresscounter::printedPercent = 0;
+	Progresscounter::printedPercent = -1;
 	Progresscounter::printed = false;
 }
 
@@ -73,8 +73,9 @@ bool Progresscounter::Print()
 			std::cout << "000 %";
 			printed = true;
 		}
-		
+
 		std::cout << "\b\b\b\b\b" << GetString();
+		fflush(stdout);
 		printedPercent = (int)percent;
 		return(true);
 	}
