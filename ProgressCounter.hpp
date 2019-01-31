@@ -5,11 +5,11 @@
 #include <iostream>
 
 // A class representing a text based progress counter.
-class Progresscounter
+class ProgressCounter
 {
 public:
-	Progresscounter();
-	Progresscounter(int maxElements, int counter = 0);
+	ProgressCounter();
+	ProgressCounter(int maxElements, int counter = 0);
 
 	void	Reset();
 	void	Reset(int maxElements, int counter = 0);

@@ -1,42 +1,42 @@
-#include "Progresscounter.h"
+#include "ProgressCounter.hpp"
 
 /**************** Constructor ****************/
 
-// Initializes a progresscounter for values between 0 and 100.
-Progresscounter::Progresscounter()
-	: Progresscounter::Progresscounter(100 ,0) {}
+// Initializes a ProgressCounter for values between 0 and 100.
+ProgressCounter::ProgressCounter()
+	: ProgressCounter::ProgressCounter(100 ,0) {}
 
 
-// Initializes a progresscounter within a custom range.
-Progresscounter::Progresscounter(int maxElements, int counter)
+// Initializes a ProgressCounter within a custom range.
+ProgressCounter::ProgressCounter(int maxElements, int counter)
 {
-	Progresscounter::maxElements = maxElements;
-	Progresscounter::counter = counter;
-	Progresscounter::percent = 100 * ((double)counter / (double)maxElements);
-	Progresscounter::printedPercent = -1;
-	Progresscounter::printed = false;
+	ProgressCounter::maxElements = maxElements;
+	ProgressCounter::counter = counter;
+	ProgressCounter::percent = 100 * ((double)counter / (double)maxElements);
+	ProgressCounter::printedPercent = -1;
+	ProgressCounter::printed = false;
 }
 
 /**************** Functions ****************/
 
 // Sets the counter to its initial state.
-void Progresscounter::Reset()
+void ProgressCounter::Reset()
 {
-	Reset(Progresscounter::maxElements, 0);
+	Reset(ProgressCounter::maxElements, 0);
 }
 
 
 // Initializes the counter with new values.
-void Progresscounter::Reset(int maxElements, int counter)
+void ProgressCounter::Reset(int maxElements, int counter)
 {
-	Progresscounter::maxElements = maxElements;
+	ProgressCounter::maxElements = maxElements;
 	printed = false;
 	SetCounter(counter);
 }
 
 
 // Sets the counter to the given value.
-void Progresscounter::SetCounter(int counter)
+void ProgressCounter::SetCounter(int counter)
 {
 	// Checks if the counter is in a valid range.
 	if(counter < 0)
@@ -49,22 +49,22 @@ void Progresscounter::SetCounter(int counter)
 	}
 
 	// Setting counter.
-	Progresscounter::counter = counter;
+	ProgressCounter::counter = counter;
 
 	// Calculating percantage of maximum value.
-	Progresscounter::percent = 100 * ((double)counter / (double)maxElements);
+	ProgressCounter::percent = 100 * ((double)counter / (double)maxElements);
 }
 
 
 // Increments the counter by one.
-void Progresscounter::Increment()
+void ProgressCounter::Increment()
 {
 	SetCounter(counter + 1);
 }
 
 
 // Prints the new percentage, if it has changed.
-bool Progresscounter::Print()
+bool ProgressCounter::Print()
 {
 	if(printedPercent != (int)percent)
 	{
@@ -84,28 +84,28 @@ bool Progresscounter::Print()
 
 
 // Returns the current counter.
-int Progresscounter::GetCounter()
+int ProgressCounter::GetCounter()
 {
 	return(counter);
 }
 
 
 // Returns the maximum value of the counter.
-int Progresscounter::GetMaxElements()
+int ProgressCounter::GetMaxElements()
 {
 	return(maxElements);
 }
 
 
 // Returns the current progress as percentage.
-double Progresscounter::GetPercent()
+double ProgressCounter::GetPercent()
 {
 	return(percent);
 }
 
 
 // Returns the current percentage formatted as a string.
-std::string Progresscounter::GetString()
+std::string ProgressCounter::GetString()
 {
 	std::string output = "";
 
