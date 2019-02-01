@@ -8,11 +8,11 @@ ProgressCounter::ProgressCounter()
 
 
 // Initializes a ProgressCounter within a custom range.
-ProgressCounter::ProgressCounter(int maxElements, int counter)
+ProgressCounter::ProgressCounter(size_t maxElements, size_t counter)
 {
 	ProgressCounter::maxElements = maxElements;
 	ProgressCounter::counter = counter;
-	ProgressCounter::percent = 100 * ((double)counter / (double)maxElements);
+	ProgressCounter::percent = 100 * ((float)counter / (float)maxElements);
 	ProgressCounter::printedPercent = -1;
 	ProgressCounter::printed = false;
 }
@@ -20,30 +20,26 @@ ProgressCounter::ProgressCounter(int maxElements, int counter)
 /**************** Functions ****************/
 
 // Sets the counter to its initial state.
-void ProgressCounter::Reset()
+void ProgressCounter::reset()
 {
-	Reset(ProgressCounter::maxElements, 0);
+	reset(ProgressCounter::maxElements, 0);
 }
 
 
 // Initializes the counter with new values.
-void ProgressCounter::Reset(int maxElements, int counter)
+void ProgressCounter::reset(size_t maxElements, size_t counter)
 {
 	ProgressCounter::maxElements = maxElements;
 	printed = false;
-	SetCounter(counter);
+	setCounter(counter);
 }
 
 
 // Sets the counter to the given value.
-void ProgressCounter::SetCounter(int counter)
+void ProgressCounter::setCounter(size_t counter)
 {
 	// Checks if the counter is in a valid range.
-	if(counter < 0)
-	{
-		counter = 0;
-	}
-	else if(counter > maxElements)
+	if(counter > maxElements)
 	{
 		counter = maxElements;
 	}
@@ -52,19 +48,19 @@ void ProgressCounter::SetCounter(int counter)
 	ProgressCounter::counter = counter;
 
 	// Calculating percantage of maximum value.
-	ProgressCounter::percent = 100 * ((double)counter / (double)maxElements);
+	ProgressCounter::percent = 100 * ((float)counter / (float)maxElements);
 }
 
 
 // Increments the counter by one.
-void ProgressCounter::Increment()
+void ProgressCounter::increment()
 {
-	SetCounter(counter + 1);
+	setCounter(counter + 1);
 }
 
 
 // Prints the new percentage, if it has changed.
-bool ProgressCounter::Print()
+bool ProgressCounter::print() const
 {
 	if(printedPercent != (int)percent)
 	{
@@ -74,7 +70,7 @@ bool ProgressCounter::Print()
 			printed = true;
 		}
 
-		std::cout << "\b\b\b\b\b" << GetString();
+		std::cout << "\b\b\b\b\b" << getString();
 		fflush(stdout);
 		printedPercent = (int)percent;
 		return(true);
@@ -84,35 +80,34 @@ bool ProgressCounter::Print()
 
 
 // Returns the current counter.
-int ProgressCounter::GetCounter()
+size_t ProgressCounter::getCounter() const
 {
 	return(counter);
 }
 
 
 // Returns the maximum value of the counter.
-int ProgressCounter::GetMaxElements()
+size_t ProgressCounter::getMaxElements() const
 {
 	return(maxElements);
 }
 
 
 // Returns the current progress as percentage.
-double ProgressCounter::GetPercent()
+float ProgressCounter::getPercent() const
 {
 	return(percent);
 }
 
 
 // Returns the current percentage formatted as a string.
-std::string ProgressCounter::GetString()
+std::string ProgressCounter::getString() const
 {
 	std::string output = "";
 
 	// Formatting number.
 	if(percent <= 0)
 	{
-		percent = 0;
 		output += "000";
 	}
 	else if(percent < 10)
@@ -127,7 +122,6 @@ std::string ProgressCounter::GetString()
 	}
 	else
 	{
-		percent = 100;
 		output += std::to_string((int)percent);
 	}
 	output += " %";

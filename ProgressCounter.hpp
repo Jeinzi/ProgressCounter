@@ -9,24 +9,24 @@ class ProgressCounter
 {
 public:
 	ProgressCounter();
-	ProgressCounter(int maxElements, int counter = 0);
+	ProgressCounter(size_t maxElements, size_t counter = 0);
 
-	void	Reset();
-	void	Reset(int maxElements, int counter = 0);
-	void	SetCounter(int counter);
-	void	Increment();
-	bool	Print();
-	int		GetCounter();
-	int		GetMaxElements();
-	double	GetPercent();
-	std::string	GetString();
+	void	reset();
+	void	reset(size_t maxElements, size_t counter = 0);
+	void	setCounter(size_t counter);
+	void	increment();
+	bool	print() const;
+	size_t	getCounter() const;
+	size_t	getMaxElements() const;
+	float		getPercent() const;
+	std::string	getString() const;
 
 private:
-	bool	printed;
-	int		maxElements;
-	int		counter;
-	int		printedPercent;
-	double	percent;
+	mutable bool	printed;
+	size_t	maxElements;
+	size_t	counter;
+	mutable int	printedPercent;
+	float		percent;
 };
 
 #endif
