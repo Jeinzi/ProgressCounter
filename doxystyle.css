@@ -1,0 +1,123 @@
+html * {
+    font-family: "PT Sans" !important;
+    color: #444;
+}
+
+.title {
+    font-size: 200%;
+}
+
+div.contents h1:first-of-type {
+    margin-top: 35px;
+}
+
+#titlearea {
+    background: #202020;
+    border-bottom: 0px;
+    position: relative;
+}
+
+#projectname {
+    color: white;
+    font-weight: bold;
+    padding-bottom: 0px;
+}
+
+#projectbrief {
+    color: #D0D1D2;
+    margin-bottom: 5px;
+    margin-left: 4px;
+}
+
+#main-nav {
+    border-top: 1px solid;
+    border-color: #666;
+}
+
+#main-menu {
+    background-image: none;
+    background: #202020;
+}
+
+div.header {
+    border-bottom: 0px;
+    background: white;
+}
+
+hr {
+    border-color: #888;
+}
+
+ul.sm-dox {
+    padding-left: 0px;
+}
+
+a, a:visited, a:focus {
+    text-shadow: none !important;
+    color: #4665A2;
+    background-image: none !important;
+}
+
+.sm-dox li ul, .sm-dox li ul li a, .sm-dox li ul li a:hover, .sm-dox li ul li a:focus {
+    background-color: #202020;
+}
+
+#top a, #top a:focus, #top a:visited {
+    color: #49B4DF;
+}
+
+#top a:hover {
+    color: white;
+}
+
+.sm-dox>li>ul:before, .sm-dox>li>ul:after {
+    border-bottom-color: white;
+}
+
+.sm-dox>li>ul:after {
+    border-bottom-color: #202020;
+}
+
+div.qindex, div.navtab {
+    background-color: #EBEFF6;
+    border: 1px solid #49B4DF;
+    text-align: center;
+}
+
+#nav-path li {
+    background-image: none;
+}
+
+.navpath li.navelem a {
+    color: #49B4DF;
+}
+
+#nav-path ul {
+    background-image: none;
+    background-color: #202020;
+    border-color: #666;
+    border-left: 0px;
+    border-right: 0px;
+    border-bottom: 0px;
+}
+
+.sm-dox li {
+    background-image: none !important;
+}
+
+.sm-dox a {
+    background-image: none;
+    color: #49B4DF;
+    border-left: 1px solid;
+    border-right: 1px solid;
+    border-color: #666;
+}
+
+.sm-dox a:first-child {
+    border-left: 0px solid;
+}
+
+.sm-dox a:hover {
+    background-image: none;
+    color: white;
+}
