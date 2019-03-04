@@ -1,3 +1,5 @@
 #Ignore main file (only used for local testing purposes)
 main.cpp
 .vscode
+docs/html
+docs/latex
