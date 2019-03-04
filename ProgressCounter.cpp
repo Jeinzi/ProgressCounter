@@ -103,14 +103,10 @@ float ProgressCounter::getPercent() const
 // Returns the current percentage formatted as a string.
 std::string ProgressCounter::getString() const
 {
-  std::string output = "";
+  std::string output("0", 1);
 
   // Formatting number.
-  if(percent <= 0)
-  {
-    output += "000";
-  }
-  else if(percent < 10)
+  if(percent < 10)
   {
     output += "00";
     output += std::to_string((int)percent);
@@ -122,7 +118,7 @@ std::string ProgressCounter::getString() const
   }
   else
   {
-    output += std::to_string((int)percent);
+    output = "100";
   }
   output += " %";
 

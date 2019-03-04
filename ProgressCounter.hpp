@@ -19,7 +19,7 @@ public:
   float getPercent() const;
   size_t getCounter() const;
   size_t getMaxElements() const;
-  std::string  getString() const;
+  std::string getString() const;
 
 private:
   float percent;
