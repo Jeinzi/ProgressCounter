@@ -1,6 +1,6 @@
 /**
  * @file
- * @brief A text based progress counter
+ * @brief A text-based progress counter
  *
  * This is free and unencumbered software released into the public domain.
  * For more information, please refer to http://unlicense.org
@@ -13,7 +13,7 @@
 #include <iostream>
 
 
-/** A text based progress counter. */
+/** A text-based progress counter. */
 class ProgressCounter
 {
 public:

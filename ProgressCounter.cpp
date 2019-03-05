@@ -119,12 +119,11 @@ std::string ProgressCounter::getString() const
   // Formatting number.
   if(percent < 10)
   {
-    output += "00";
+    output += "0";
     output += std::to_string((int)percent);
   }
   else if(percent < 100)
   {
-    output += "0";
     output += std::to_string((int)percent);
   }
   else
